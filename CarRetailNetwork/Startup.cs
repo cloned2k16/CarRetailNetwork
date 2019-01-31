@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,6 +48,10 @@ namespace CarRetailNetwork
 
 			app.UseHttpsRedirection();
 			app.UseMvc();
-		}
+
+      //Angular stuff
+      app.UseDefaultFiles();
+      app.UseStaticFiles();
+    }
 	}
 }

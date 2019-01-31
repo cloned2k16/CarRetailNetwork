@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+	
+	<!-- These entries will ensure that TypeScript files are compiled using Angular CLI instead of Visual Studio. -->
+	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked> 
+	<PostBuildEvent>ng build --aot</PostBuildEvent> 
+	<TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
