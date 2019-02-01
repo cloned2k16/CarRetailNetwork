@@ -4,8 +4,42 @@
     <span class="fill-toolbar-space"></span>
     <span>{{ now | date:'dd/MM/yyyy hh:mm:ss' }}</span>
   </mat-toolbar>
-  <h1>
-    Welcome ¡!
-  </h1>
+  <h2>
+    Welcome to our Network ¡!
+  </h2>
+
+  <!--                                  -->
+    
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Dealers</ng-template>
+          <mat-list>
+            <h3 mat-subheader>Dealers</h3>
+            <mat-list-item *ngFor="let dealer of dealers">
+              <h4 mat-line>{{dealer.name}}</h4>
+              <p mat-line> {{dealer.address}} </p>
+            </mat-list-item>
+           </mat-list>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Cars</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Cars" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Resume</ng-template>
+      here come the stats
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
 </div>
 
